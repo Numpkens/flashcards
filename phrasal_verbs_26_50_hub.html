@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phrasal Verbs 26-50 Presentation Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans antialiased flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="bg-slate-800 border-b border-slate-700 p-4 shadow-md">
+        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <h1 class="text-xl font-bold text-teal-400">Phrasal Verbs 26-50 Hub</h1>
+                <p class="text-xs text-slate-400">Interactive Mastery & Presentation Deck</p>
+            </div>
+            <!-- Navigation Tabs -->
+            <nav class="flex gap-2 bg-slate-900 p-1 rounded-lg border border-slate-700">
+                <button onclick="switchTab('cards')" id="nav-cards" class="px-4 py-1.5 text-xs font-semibold rounded-md transition bg-teal-600 text-white shadow">Flashcards</button>
+                <button onclick="switchTab('list')" id="nav-list" class="px-4 py-1.5 text-xs font-semibold rounded-md transition text-slate-400 hover:text-white">Full List</button>
+                <button onclick="switchTab('quiz')" id="nav-quiz" class="px-4 py-1.5 text-xs font-semibold rounded-md transition text-slate-400 hover:text-white">Quick Quiz</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-4xl mx-auto w-full p-4 sm:p-6 flex-grow flex flex-col justify-center">
+
+        <!-- TAB 1: FLASHCARDS -->
+        <section id="tab-cards" class="space-y-6">
+            <div class="flex justify-between items-center text-sm text-slate-400 px-1">
+                <span>Card <span id="current-card-num" class="font-bold text-teal-400">1</span> of 25</span>
+                <span class="text-xs bg-slate-800 border border-slate-700 px-2 py-1 rounded">Click card or press Space to flip</span>
+            </div>
+
+            <!-- Flashcard Container -->
+            <div class="perspective-1000 w-full max-w-xl mx-auto h-72 sm:h-80 cursor-pointer" onclick="flipCard()">
+                <div id="flashcard" class="relative w-full h-full duration-500 transform-style-3d shadow-xl rounded-2xl">
+                    
+                    <!-- Front Side -->
+                    <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-slate-800 to-slate-850 border border-slate-700 rounded-2xl p-6 sm:p-8 flex flex-col justify-between backface-hidden">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-950 px-2.5 py-1 rounded-full border border-teal-800" id="card-badge">#26</span>
+                            <span class="text-xs text-slate-500">Front</span>
+                        </div>
+                        <div class="text-center my-auto">
+                            <h2 id="card-phrase" class="text-3xl sm:text-4xl font-extrabold text-white tracking-wide">Bring up</h2>
+                        </div>
+                        <div class="text-center text-xs text-slate-400 italic">Click to reveal definition & example</div>
+                    </div>
+
+                    <!-- Back Side -->
+                    <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-teal-950 to-slate-900 border border-teal-800 rounded-2xl p-6 sm:p-8 flex flex-col justify-between backface-hidden rotate-y-180">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold uppercase tracking-wider text-teal-300 bg-teal-900 px-2.5 py-1 rounded-full">Definition & Context</span>
+                            <span class="text-xs text-teal-400">Back</span>
+                        </div>
+                        <div class="my-auto space-y-3">
+                            <p id="card-definition" class="text-base sm:text-lg text-slate-200 font-medium text-center">To mention a topic or start talking about it.</p>
+                            <div class="bg-slate-900/80 border border-teal-900/50 p-3 rounded-lg text-xs sm:text-sm text-slate-300 italic text-center" id="card-example">
+                                "Please don't bring up politics during dinner."
+                            </div>
+                        </div>
+                        <div class="text-center text-xs text-teal-400/70">Click to flip back</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Card Controls -->
+            <div class="flex justify-center items-center gap-4 pt-2">
+                <button onclick="prevCard()" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 px-5 py-2.5 rounded-xl font-medium text-sm transition flex items-center gap-2">
+                    ← Previous
+                </button>
+                <button onclick="nextCard()" class="bg-teal-600 hover:bg-teal-500 text-white px-6 py-2.5 rounded-xl font-medium text-sm transition shadow-lg shadow-teal-900/30 flex items-center gap-2">
+                    Next →
+                </button>
+            </div>
+        </section>
+
+        <!-- TAB 2: FULL LIST -->
+        <section id="tab-list" class="hidden space-y-4">
+            <div class="flex justify-between items-center">
+                <h2 class="text-lg font-bold text-teal-400">Complete Phrasal Verbs Index (26–50)</h2>
+                <input type="text" id="search-input" oninput="filterList()" placeholder="Search verbs..." class="bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-teal-500">
+            </div>
+            <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden max-h-[60vh] overflow-y-auto">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead class="bg-slate-850 text-slate-400 uppercase text-xs border-b border-slate-700 sticky top-0 bg-slate-900">
+                        <tr>
+                            <th class="p-3">#</th>
+                            <th class="p-3">Phrasal Verb</th>
+                            <th class="p-3">Definition</th>
+                            <th class="p-3 hidden sm:table-cell">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody id="verbs-table-body" class="divide-y divide-slate-700/50">
+                        <!-- Populated via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- TAB 3: QUIZ -->
+        <section id="tab-quiz" class="hidden space-y-6 max-w-xl mx-auto w-full">
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 space-y-6">
+                <div class="flex justify-between items-center border-b border-slate-700 pb-4">
+                    <span id="quiz-progress" class="text-xs font-bold text-teal-400">Question 1 of 5</span>
+                    <span id="quiz-score" class="text-xs text-slate-400">Score: 0/0</span>
+                </div>
+                
+                <div>
+                    <h3 id="quiz-question" class="text-lg font-semibold text-white mb-4">Complete the sentence:</h3>
+                    <div id="quiz-options" class="grid grid-cols-1 gap-3">
+                        <!-- Options generated here -->
+                    </div>
+                </div>
+
+                <div id="quiz-feedback" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+
+                <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden w-full bg-teal-600 hover:bg-teal-500 text-white py-2.5 rounded-xl text-sm font-semibold transition">
+                    Next Question
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 border-t border-slate-700 py-3 text-center text-xs text-slate-500">
+        Phrasal Verbs Mastery Deck &bull; Course Series 26-50
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        const phrasalVerbs = [
+            { num: 26, verb: "Bring up", def: "To mention a topic or start talking about it.", example: "Please don't bring up politics during dinner." },
+            { num: 27, verb: "Call off", def: "To cancel an event or arrangement.", example: "They had to call off the outdoor meeting due to heavy rain." },
+            { num: 28, verb: "Carry on", def: "To continue doing something.", example: "Despite the obstacles, we must carry on with our work." },
+            { num: 29, verb: "Catch up", def: "To reach the same point/level as someone else, or update with news.", example: "Let's grab coffee this weekend and catch up." },
+            { num: 30, verb: "Check in", def: "To register at a hotel or airport counter.", example: "We need to check in at the front desk before heading to our room." },
+            { num: 31, verb: "Check out", def: "To leave a hotel after paying, or investigate something.", example: "We checked out of the hotel at 10 AM." },
+            { num: 32, verb: "Cheer up", def: "To become or make someone become happier.", example: "Here is your favorite snack to help cheer you up." },
+            { num: 33, verb: "Come across", def: "To find or meet by chance; to make a certain impression.", example: "I came across some old photographs while cleaning the attic." },
+            { num: 34, verb: "Come forward", def: "To offer help or information voluntarily.",example: "Police urged witnesses of the accident to come forward." },
+            { num: 35, verb: "Count on", def: "To rely or depend on someone.", example: "You can always count on me when things get tough." },
+            { num: 36, verb: "Cross out", def: "To draw a line through text to remove or correct it.", example: "Cross out the incorrect answers on your test paper." },
+            { num: 37, verb: "Cut down", def: "To reduce the amount or size of something.", example: "I'm trying to cut down on my daily sugar intake." },
+            { num: 38, verb: "Deal with", def: "To handle or tackle a problem or task.", example: "Customer service agents deal with complaints professionally." },
+            { num: 39, verb: "Drop out", def: "To leave school, a course, or a race prematurely.", example: "He decided to drop out of college to launch his startup." },
+            { num: 40, verb: "End up", def: "To eventually arrive at a particular place or situation.", example: "If you don't take a map, you'll end up getting lost." },
+            { num: 41, verb: "Face up to", def: "To accept and deal with a difficult situation or reality.", example: "It is time to face up to your responsibilities." },
+            { num: 42, verb: "Fall apart", def: "To break into pieces or experience complete collapse.", example: "My old schedule started to fall apart under pressure." },
+            { num: 43, verb: "Figure out", def: "To understand or solve a problem through thought.", example: "It took me hours to figure out how to assemble the desk." },
+            { num: 44, verb: "Fill out", def: "To complete a form or questionnaire by writing information.", example: "Please fill out this registration form in block letters." },
+            { num: 45, verb: "Find out", def: "To discover or obtain information.", example: "I need to find out what time the train departs." },
+            { num: 46, verb: "Get along", def: "To have a harmonious, friendly relationship.", example: "My new colleagues and I get along really well." },
+            { num: 47, verb: "Get away", def: "To escape or take a vacation/trip.", example: "We are planning to get away to the mountains this weekend." },
+            { num: 48, verb: "Get by", def: "To manage or survive with minimal resources or effort.", example: "With limited Spanish, she managed to get by in Madrid." },
+            { num: 49, verb: "Get over", def: "To recover from an illness, shock, or difficult experience.", example: "It took him weeks to get over the flu." },
+            { num: 50, verb: "Give up", def: "To stop trying or surrender.", example: "Never give up, even when challenges seem overwhelming." }
+        ];
+
+        let currentCardIndex = 0;
+        let isFlipped = false;
+
+        // Flashcard Navigation & Interaction
+        function updateCard() {
+            const card = phrasalVerbs[currentCardIndex];
+            document.getElementById('card-badge').innerText = `#${card.num}`;
+            document.getElementById('card-phrase').innerText = card.verb;
+            document.getElementById('card-definition').innerText = card.def;
+            document.getElementById('card-example').innerText = `"${card.example}"`;
+            document.getElementById('current-card-num').innerText = currentCardIndex + 1;
+            
+            if (isFlipped) {
+                flipCardState();
+            }
+        }
+
+        function flipCard() {
+            const flashcard = document.getElementById('flashcard');
+            isFlipped = !isFlipped;
+            if (isFlipped) {
+                flashcard.classList.add('rotate-y-180');
+            } else {
+                flashcard.classList.remove('rotate-y-180');
+            }
+        }
+
+        function flipCardState() {
+            isFlipped = false;
+            document.getElementById('flashcard').classList.remove('rotate-y-180');
+        }
+
+        function nextCard() {
+            currentCardIndex = (currentCardIndex + 1) % phrasalVerbs.length;
+            updateCard();
+        }
+
+        function prevCard() {
+            currentCardIndex = (currentCardIndex - 1 + phrasalVerbs.length) % phrasalVerbs.length;
+            updateCard();
+        }
+
+        // Keyboard navigation for flashcards
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('tab-cards').classList.contains('hidden')) return;
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        });
+
+        // Tab Switching Logic
+        function switchTab(tabName) {
+            ['cards', 'list', 'quiz'].forEach(t => {
+                document.getElementById(`tab-${t}`).classList.add('hidden');
+                document.getElementById(`nav-${t}`).classList.remove('bg-teal-600', 'text-white', 'shadow');
+                document.getElementById(`nav-${t}`).classList.add('text-slate-400');
+            });
+            document.getElementById(`tab-${tabName}`).classList.remove('hidden');
+            document.getElementById(`nav-${tabName}`).classList.add('bg-teal-600', 'text-white', 'shadow');
+            document.getElementById(`nav-${tabName}`).classList.remove('text-slate-400');
+
+            if (tabName === 'list') renderTable();
+            if (tabName === 'quiz' && quizQuestions.length === 0) initQuiz();
+        }
+
+        // Full List Table Rendering
+        function renderTable(filterText = '') {
+            const tbody = document.getElementById('verbs-table-body');
+            tbody.innerHTML = '';
+            
+            const filtered = phrasalVerbs.filter(item => 
+                item.verb.toLowerCase().includes(filterText.toLowerCase()) || 
+                item.def.toLowerCase().includes(filterText.toLowerCase())
+            );
+
+            filtered.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = "hover:bg-slate-750 transition";
+                row.innerHTML = `
+                    <td class="p-3 text-teal-400 font-mono text-xs">#${item.num}</td>
+                    <td class="p-3 font-bold text-white">${item.verb}</td>
+                    <td class="p-3 text-slate-300">${item.def}</td>
+                    <td class="p-3 text-slate-400 italic hidden sm:table-cell">"${item.example}"</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function filterList() {
+            const query = document.getElementById('search-input').value;
+            renderTable(query);
+        }
+
+        // Quiz Logic
+        let quizQuestions = [];
+        let currentQuizIndex = 0;
+        let score = 0;
+
+        function initQuiz() {
+            // Shuffle and pick 5 questions
+            const shuffled = [...phrasalVerbs].sort(() => 0.5 - Math.random());
+            quizQuestions = shuffled.slice(0, 5);
+            currentQuizIndex = 0;
+            score = 0;
+            loadQuizQuestion();
+        }
+
+        function loadQuizQuestion() {
+            if (currentQuizIndex >= quizQuestions.length) {
+                showQuizComplete();
+                return;
+            }
+
+            const currentQ = quizQuestions[currentQuizIndex];
+            document.getElementById('quiz-progress').innerText = `Question ${currentQuizIndex + 1} of 5`;
+            document.getElementById('quiz-score').innerText = `Score: ${score}/${currentQuizIndex}`;
+            document.getElementById('quiz-question').innerText = `What does the phrasal verb "${currentQ.verb}" mean?`;
+            
+            // Generate options (1 correct, 3 wrong)
+            const wrongOptions = phrasalVerbs.filter(v => v.verb !== currentQ.verb)
+                                             .sort(() => 0.5 - Math.random())
+                                             .slice(0, 3)
+                                             .map(v => v.def);
+            
+            const options = [...wrongOptions, currentQ.def].sort(() => 0.5 - Math.random());
+            
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left bg-slate-900 hover:bg-slate-750 border border-slate-700 p-3.5 rounded-xl text-sm transition text-slate-200";
+                btn.innerText = opt;
+                btn.onclick = () => checkAnswer(opt, currentQ.def, btn);
+                optionsContainer.appendChild(btn);
+            });
+
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-next-btn').classList.add('hidden');
+        }
+
+        function checkAnswer(selected, correct, btnElement) {
+            const optionsContainer = document.getElementById('quiz-options');
+            const allBtns = optionsContainer.getElementsByTagName('button');
+            
+            // Disable all buttons after choice
+            for (let b of allBtns) {
+                b.disabled = true;
+                if (b.innerText === correct) {
+                    b.classList.add('bg-emerald-950', 'border-emerald-600', 'text-emerald-200');
+                }
+            }
+
+            const feedback = document.getElementById('quiz-feedback');
+            feedback.classList.remove('hidden');
+
+            if (selected === correct) {
+                score++;
+                btnElement.classList.add('bg-emerald-950', 'border-emerald-600', 'text-emerald-200');
+                feedback.className = "p-4 rounded-xl text-sm font-medium bg-emerald-950/80 border border-emerald-700 text-emerald-300";
+                feedback.innerText = "Correct! Great job.";
+            } else {
+                btnElement.classList.add('bg-rose-950', 'border-rose-600', 'text-rose-200');
+                feedback.className = "p-4 rounded-xl text-sm font-medium bg-rose-950/80 border border-rose-700 text-rose-300";
+                feedback.innerText = `Incorrect. The correct definition is: "${correct}"`;
+            }
+
+            document.getElementById('quiz-score').innerText = `Score: ${score}/${currentQuizIndex + 1}`;
+            document.getElementById('quiz-next-btn').classList.remove('hidden');
+        }
+
+        function nextQuizQuestion() {
+            currentQuizIndex++;
+            loadQuizQuestion();
+        }
+
+        function showQuizComplete() {
+            const quizCard = document.querySelector('#tab-quiz > div');
+            quizCard.innerHTML = `
+                <div class="text-center space-y-4 py-8">
+                    <h3 class="text-2xl font-bold text-white">Quiz Completed! 🎉</h3>
+                    <p class="text-slate-300 text-sm">You scored <span class="text-teal-400 font-bold">${score}</span> out of <span class="font-bold">5</span>.</p>
+                    <button onclick="initQuiz()" class="bg-teal-600 hover:bg-teal-500 text-white px-6 py-2.5 rounded-xl text-sm font-semibold transition shadow-lg shadow-teal-900/30">
+                        Try Again
+                    </button>
+                </div>
+            `;
+        }
+
+        // Initial setup
+        updateCard();
+    </script>
+</body>
+</html>
